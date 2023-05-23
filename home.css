@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
   }
+  
   .logo{
     position:fixed;
     left:10px;
@@ -34,7 +35,7 @@
     background-position: center center;
     background-size: cover;
     color: #000000;
-    filter: brightness(56%)
+    filter: brightness(100%);
   }
   /* default css end */
   
@@ -214,3 +215,17 @@
     /* navbar css for mobile end */
   }
   /* mobile breakpoint end */
+
+
+  
+    .lg{
+      width: 200px;
+      height: 70px;
+      padding: 5px;
+      padding-left: 2%;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      border: 1px solid black;
+      opacity:0.8;
+    }
+  
