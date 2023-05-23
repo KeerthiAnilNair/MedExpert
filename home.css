@@ -30,17 +30,20 @@
   }
   .header-area {
     background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)),
-    url(https://images.unsplash.com/photo-1528353518104-dbd48bee7bc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
+    url(https://previews.123rf.com/images/zakiroff/zakiroff1511/zakiroff151100010/47363256-medical-services-photo-collage-monochrome-photo-collage.jpg);
     background-position: center center;
     background-size: cover;
+    color: #000000;
+    filter: brightness(56%)
   }
   /* default css end */
   
   
   /* navbar regular css start */
   .navbar-area {
-    background: rgba(0,0,0,.6);
-    border-bottom: 1px solid #000;
+    background: rgba(0, 0, 0, 0.8);
+    backface-visibility:hidden;
+    border-bottom: 1.5px solid #ffffff;
   }
   .site-navbar {
     display: flex;
@@ -121,16 +124,48 @@
     color: #fff;
   }
   .intro-area h2 {
-    font-size: 50px;
-    font-weight: 300;
-    line-height: 50px;
-    margin-bottom: 25px;
+    font-size: 60px;
+    font-weight: 540;
+    line-height: 10px;
+    margin-bottom: 95px;
   }
-  .intro-area p {
+  
+  .intro-area letterDrop {
+    position: relative;
+    top: 0;  
+    display: inline-block;
+    text-transform: uppercase; 
+    letter-spacing: 0.5em;
+    opacity: 0.8;
+    transform: rotateX(-90deg);
+    animation: letterDrop 1.2s ease 1 normal forwards;
+  }
+  
+  @keyframes letterDrop {
+      10% {
+          opacity: 0.5;
+      }
+      20% {
+          opacity: 0.8;
+          top: 3.75em;
+          transform: rotateX(-360deg);
+      }
+      100% {
+          opacity: 1;
+          top: 4.50em;
+          transform: rotateX(360deg);
+      }
+  }
+  
+  
+  span:nth-child(2n) {
+    color: #663399;
+  }
+  
+  .intro-area h3 {
     font-size: 18px;
   }
   /* intro-area css end */
-  
   
   /* mobile breakpoint start */
   @media screen and (max-width: 767px) {
