@@ -1,0 +1,145 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: url("https://previews.123rf.com/images/zakiroff/zakiroff1511/zakiroff151100010/47363256-medical-services-photo-collage-monochrome-photo-collage.jpg");
+  filter: brightness(80%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Karla';
+  }
+  
+  .mmn {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }
+  
+  
+  .container {
+    background-color: rgba(0, 0, 0, .6);
+    /* background-color:#619fd3;*/
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 0 0px 10px #444444;
+    fill-opacity: 0.5;
+  
+  
+  }
+  
+  .log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10%;
+    font-size: 25px;
+    color: #ffffff
+  }
+  
+  .em {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .e {
+    height: 21px;
+    width: 200px;
+  
+    margin-bottom: 8px;
+    border-radius: 5px;
+  
+  }
+  
+  
+  
+  .ps {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .p {
+    height: 21px;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+  
+  }
+  
+  .f {
+    font-size: 13px;
+    color: #0a479b;
+  
+  }
+  
+  .b {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12%;
+    margin-bottom: 10px;
+  
+  }
+  
+  .bt {
+    width: 45%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #001a48;
+    color: white;
+    font-size: 15px;
+  }
+  
+  .bt:hover {
+    cursor: pointer;
+    background-color: #003267;
+  }
+  
+  .sp {
+    font-size: 15px;
+    color: #ffffff;
+  }
+  
+  .f:active {
+    color: #001e57;
+  }
+  
+  .sp:active {
+    color: #c0c0c0;
+  }
+  
+  
+  .al {
+    color: #e32400;
+    font-size: 15px;
+  }
+  
+  nav {
+    background-color: #000000;
+    color: white;
+    height: 100px;
+    display: flex;
+    /* justify-content: center;*/
+    align-items: center;
+  
+  
+  }
+  
+  .logo {
+    width: 200px;
+    height: 70px;
+    padding: 5px;
+    padding-left: 2%;
+    border-radius: 30px;
+    border: 1px solid black;
+    opacity: 0.8;
+  }
