@@ -1,0 +1,69 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: url("https://previews.123rf.com/images/zakiroff/zakiroff1511/zakiroff151100010/47363256-medical-services-photo-collage-monochrome-photo-collage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Karla';
+    filter: brightness(80%);
+  }
+  
+  
+  
+  nav {
+    background-color: #000000;
+    color: white;
+    height: 100px;
+    display: flex;
+    /* justify-content: center;*/
+    align-items: center;
+  
+  
+  }
+  
+  .logo {
+    width: 200px;
+    height: 70px;
+    padding: 5px;
+    padding-left: 2%;
+    border-radius: 30px;
+    border: 1px solid black;
+    opacity: 0.8;
+  }
+  
+  button {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+  
+    padding: 20px;
+    margin: 40px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #1a1b1a 1.18%, #525252 100%);
+    color: white;
+    font-size: 20px;
+  
+  
+  
+  }
+  
+  
+  
+  
+  
+  .mmn {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }
+  
+  button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
