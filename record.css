@@ -1,10 +1,8 @@
-/* default css start */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
   .logo{
     width: 20px;
     height: auto;
@@ -24,20 +22,60 @@
   .container {
     width: 100%;
     max-width: 2440px;
+    height: 100%;
     margin: 0 auto;
     padding: 0 0px;
+    
   }
+  
   .header-area {
     background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)),
     url(https://previews.123rf.com/images/zakiroff/zakiroff1511/zakiroff151100010/47363256-medical-services-photo-collage-monochrome-photo-collage.jpg);
     background-position: center center;
-    background-size: cover;
     color: #000000;
     filter: brightness(100%);
+    background-size: cover;
+    margin: 0px auto;
   }
-  /* default css end */
-  
-  
+ 
+  table {  
+    font-family: arial, sans-serif;  
+    border-collapse: collapse;  
+    width: 60%;
+    margin: 70px auto;
+    line-height: 20px;
+
+  }
+  #htmlContent{
+    text-align: center;
+    line-height: 50px;
+    margin: 100px auto;
+  } 
+  h2{
+    color: #000000;
+    font-size: 35px;
+  } 
+  p{
+    color: #000000;
+    font-size: 16px;
+    line-height: 25px;
+  } 
+  td, th, button {  
+    border: 1px solid #dddddd;  
+    text-align: left;  
+    padding: 10px;  
+    margin-bottom: 50px;
+    cursor: pointer;
+  }  
+  button {  
+    border: 1px solid rgb(109, 108, 108);    
+    color: #ffffff;
+    background-color: #2c98c6;
+  } 
+  tr:nth-child(even) {  
+    background-color: #dddddd;  
+  }  
+
   /* navbar regular css start */
   .navbar-area {
     background: rgba(0, 0, 0, 0.8);
@@ -113,117 +151,4 @@
   }
   /* nav-toggler css start */
   
-  
-  /* intro-area css start */
-  .intro-area {
-    height: calc(100vh - 61px);
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-  }
-  .intro-area h2 {
-    font-size: 60px;
-    font-weight: 540;
-    line-height: 10px;
-    margin-bottom: 95px;
-  }
-  
-  .intro-area letterDrop {
-    position: relative;
-    top: 0;  
-    display: inline-block;
-    text-transform: uppercase; 
-    letter-spacing: 0.5em;
-    opacity: 0.8;
-    transform: rotateX(-90deg);
-    animation: letterDrop 1.2s ease 1 normal forwards;
-  }
-  
-  @keyframes letterDrop {
-      10% {
-          opacity: 0.5;
-      }
-      20% {
-          opacity: 0.8;
-          top: 3.75em;
-          transform: rotateX(-360deg);
-      }
-      100% {
-          opacity: 1;
-          top: 4.50em;
-          transform: rotateX(360deg);
-      }
-  }
-  
-  
-  span:nth-child(2n) {
-    color: #663399;
-  }
-  
-  .intro-area h3 {
-    font-size: 18px;
-  }
-  /* intro-area css end */
-  
-  /* mobile breakpoint start */
-  @media screen and (max-width: 767px) {
-    .container {
-      max-width: 720px;
-    }
-    /* navbar css for mobile start */
-    .nav-toggler{
-      display: block;
-    }
-    .site-navbar {
-      min-height: 60px;
-    }
-    .site-navbar ul {
-      position: absolute;
-      width: 100%;
-      height: calc(100vh - 60px);
-      left: 0;
-      top: 60px;
-      flex-direction: column;
-      align-items: center;
-      border-top: 1px solid #444;
-      background-color: rgba(0,0,0,.75);
-      max-height: 0;
-      overflow: hidden;
-      transition: .3s;
-    }
-    .site-navbar ul li {
-      width: 100%;
-      text-align: center;
-    }
-    .site-navbar ul li a {
-      padding: 25px;
-    }
-    .site-navbar ul li a:hover {
-      background-color: rgba(255,255,255,.1);
-    }
-    .site-navbar ul.open {
-      max-height: 100vh;
-      overflow: visible;
-    }
-    .intro-area h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }  
-    /* navbar css for mobile end */
-  }
-  /* mobile breakpoint end */
-
-
-  
-    .lg{
-      width: 200px;
-      height: 70px;
-      padding: 5px;
-      padding-left: 2%;
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
-      border: 1px solid black;
-      opacity:0.8;
-    }
   
