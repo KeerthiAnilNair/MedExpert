@@ -1,14 +1,12 @@
-const b1 = document.querySelector('.b1');
+
 const b2 = document.querySelector('.b2');
 const b3 = document.querySelector('.b3');
 
 
-function f1(){
-          window.location.href = "#";
-}
+
 
 function f2(){
-          window.location.href = "#";
+          window.location.href = "record.html";
 }
 
 function f3(){
@@ -25,6 +23,6 @@ function f3(){
 
 
 
-b1.addEventListener('click', f1);
+
 b2.addEventListener('click', f2);
 b3.addEventListener('click', f3);

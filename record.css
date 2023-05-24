@@ -18,6 +18,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    
   }
   .container {
     width: 100%;
@@ -36,6 +37,7 @@
     filter: brightness(100%);
     background-size: cover;
     margin: 0px auto;
+    
   }
  
   table {  
