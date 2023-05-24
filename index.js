@@ -10,7 +10,7 @@ function f2(){
 }
 
 function f3(){
-          window.location.href = "#";
+          window.location.href = "reminder.html";
 }
 
 
