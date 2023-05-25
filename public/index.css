@@ -1,0 +1,108 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: url("https://previews.123rf.com/images/zakiroff/zakiroff1511/zakiroff151100010/47363256-medical-services-photo-collage-monochrome-photo-collage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Karla';
+    filter: brightness(80%);
+  }
+  
+  a.site-logo {
+    font-size: 26px;
+    font-weight: 600;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 20px;
+  }
+  
+  nav {
+    background-color: #000000;
+    color: white;
+    height: 70px;
+    display: flex;
+    /* justify-content: center;*/
+    align-items: center;
+    
+    opacity: 0.9;
+  
+  
+  }
+  
+  .logo {
+    width: 150px;
+    height: 50px;
+    padding: 5px;
+    padding-left: 2%;
+    border-radius: 30px;
+    border: 1px solid black;
+  
+  }
+  
+  button {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+  
+    padding: 20px;
+    margin: 40px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #1a1b1a 1.18%, #525252 100%);
+    color: white;
+    font-size: 20px;
+  
+  
+  
+  }
+  
+  
+  
+  
+  
+  .mmn {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }
+  
+  button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+
+  .aa{
+    color: #fff;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 75%;
+
+  }
+
+  .aa:hover{
+    opacity: 0.5;
+  }
+
+
+  .a{
+    color: #fff;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+
+
+  }
+
+  .a:hover{
+    opacity: 0.5;
+  }
