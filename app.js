@@ -7,7 +7,7 @@ const { body, validationResult } = require('express-validator');
 const app = express();
 
 
-mongoose.connect('mongodb+srv://dasharitha10:sQcTmgXIIMIRU3he@cluster0.9vbqkls.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://dasharitha10:<password>@cluster0.9vbqkls.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
