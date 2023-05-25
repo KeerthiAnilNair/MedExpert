@@ -7,98 +7,69 @@ const nt = document.querySelector('.n');
 var valem = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 var fl = 1;
 
-
-
-function vl() {
+async function vl() {
   const txt = et.value;
   const pst = pt.value;
   const dat = dt.value;
   const nmt = nt.value;
 
-  if (txt == "" || pst == "" || dat == "" || nmt == "") {
-
-
-    if (nmt == "") {
+  if (txt === '' || pst === '' || dat === '' || nmt === '') {
+    if (nmt === '') {
       nt.placeholder = 'Enter name';
-      document.getElementById("al").innerHTML = "*Details not entered";
-    }
-
-    else if (txt == "") {
+      al.textContent = '*Details not entered';
+    } else if (txt === '') {
       et.placeholder = 'Enter valid email id';
-      document.getElementById("al").innerHTML = "*Details not entered";
-    }
-
-    else if (pst == "") {
+      al.textContent = '*Details not entered';
+    } else if (pst === '') {
       pt.placeholder = 'Enter password';
-      document.getElementById("al").innerHTML = "*Details not entered";
+      al.textContent = '*Details not entered';
+    } else {
+      al.textContent = '*DOB not entered';
     }
-    else {
-      document.getElementById("al").innerHTML = "*DOB not entered";
-    }
-
-  }
-
-
-
-
-
-
-  else {
-    document.getElementById("al").innerHTML = "";
+  } else {
+    al.textContent = '';
     if (txt.match(valem)) {
       fl = 1;
-    }
-    else {
+    } else {
       fl = 2;
-
     }
-
-    if (fl == 2) {
-      document.getElementById("al").innerHTML = "*Invalid mail id";
-    }
-
-    else {
-      document.getElementById("al").innerHTML = "";
+    if (fl === 2) {
+      al.textContent = '*Invalid mail id';
+    } else {
+      al.textContent = '';
       if (pst.length < 6) {
-        document.getElementById("al").innerHTML = "*min password length 6";
+        al.textContent = '*Minimum password length is 6';
+      } else {
+        try {
+          const response = await fetch('/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              username: nmt,
+              email: txt,
+              birthdate: dat,
+              password: pst
+            })
+          });
+          const data = await response.json();
+          if (response.status === 200) {
+            alert('Sign-up successful');
+            al.textContent = '';
+            window.location.href = 'home.html';
+          } else if (response.status === 400) {
+            al.textContent = data.message;
+          } else {
+            al.textContent = 'An error occurred. Please try again later.';
+          }
+        } catch (error) {
+          console.error('Error signing up:', error);
+          al.textContent = 'An error occurred. Please try again later.';
+        }
       }
-      else {
-        alert('Sign-up succesful');
-        document.getElementById("al").innerHTML = "";
-        window.location.href = "home.html";
-
-      }
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
   }
-
-
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
 bt.addEventListener('click', vl);
-
