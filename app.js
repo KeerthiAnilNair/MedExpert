@@ -80,8 +80,7 @@ app.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid password' });
     }
 
-    // Perform additional login logic if needed
-
+   
     res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     console.error('Error authenticating user:', error);
