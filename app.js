@@ -3,11 +3,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const { body, validationResult } = require('express-validator');
-//const multer = require('multer');
-
 
 const app = express();
-
 
 mongoose.connect('mongodb+srv://dasharitha10:sQcTmgXIIMIRU3he@cluster0.9vbqkls.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -28,8 +25,19 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+const recordSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  bloodgroup: String,
+  height: Number,
+  weight: Number,
+});
+
+const Record = mongoose.model('Record', recordSchema);
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 app.post('/signup', [
   body('username').notEmpty().withMessage('Username is required'),
@@ -80,11 +88,41 @@ app.post('/login', async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ message: 'Invalid password' });
     }
-    //res.redirect('/index');
+    
   } catch (error) {
     console.error('Error authenticating user:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
+
+});
+
+
+app.post('/profile', async (req, res) => {
+  
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { name, age, bloodgroup, weight, height } = req.body;
+  console.log(req.body);
+
+  try{
+    const userRecord = new Record({
+    name,
+    age,
+    bloodgroup,
+    weight,
+    height,
+  });
+
+  await userRecord.save();
+  res.status(200).json({ message: 'record saved successfully' });
+
+} catch(err) {
+     console.error('Error registering user:', error);
+     res.status(500).json({ message: 'Internal server error' });
+}
 
 });
 
@@ -105,21 +143,17 @@ app.get('/index', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-//  app.get('/reminder', (req, res) => {
-//    res.sendFile(path.join(__dirname, 'public', 'reminder.html'));
-//  });
+ app.get('/reminder', (req, res) => {
+   res.sendFile(path.join(__dirname, 'public', 'reminder.html'));
+ });
 
-// app.get('/record', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'public', 'record.html'));
-// });
+app.get('/record', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'record.html'));
+});
 
-// app.get('/profile', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'public', 'profile.html'));
-// });
-
-app.post("/upload", (req, res) => {
-  res.send()
-})
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'profile.html'));
+});
 
 app.listen(3000, () => {
   console.log('Server started on port 3000');

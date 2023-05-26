@@ -13,90 +13,54 @@
   <nav>
     <img class="logo" src="logo.png" />
   </nav>
+  <form action="/profile" method="post">
   <div class="mmn">
     <div class="container">
 
       <header class="log"><b>PROFILE</b></b></header>
 
       <div class='ai' id='ai'>Name:</div>
-
       <div class="nm">
-
-        <input type="text" placeholder="Name " class="n nam" id="nn">
-
-
+        <input type="text" placeholder="Name " class="nnam" id="nn" name="yourname">
       </div>
 
       <div class='ai' id='ai'>Age:</div>
-
       <div class="nm">
-
-        <input type="number" min=0 placeholder="Age " class="n age" id="nn">
-
-
+        <input type="number" min=0 placeholder="Age " class="nage" id="nn" name="yourage">
       </div>
 
       <div class='ai' id='ai'>Blood Group:</div>
-
       <div class="nm">
-
-        <input type="text" placeholder="Blood Group" class="n bg" id="nn">
-
-
+        <input type="text" placeholder="Blood Group" class="nbg" id="nn" name="yourbloodgroup">
       </div>
-
 
       <div class='ai' id='ai'>Weight(kg):</div>
-
       <div class="nm">
-
-        <input type="number" min=0 placeholder="Weight " class="n w" id="nn">
-
-
+        <input type="number" min=0 placeholder="Weight " class="nw" id="nn" name="yourweight">
       </div>
-
 
       <div class='ai' id='ai'>Height(cm):</div>
-
       <div class="nm">
-
-        <input type="number" min=0 placeholder="Height " class="n h" id="nn">
-
-
+        <input type="number" min=0 placeholder="Height " class="nh" id="nn" name="yourheight">
       </div>
 
-
-
-
-
-
-
-
+      <div class='al' id='al'></div>
+      
       <div class="b">
-        <button class="bt" id="bt" href=" ">Submit</button>
+        <button class="bt" id="bt">Submit</button>
       </div>
 
       <div class="ss">
         <a class="sp" href="index.html" id="sp"></a>
       </div>
 
-
-
-
-
     </div>
 
-
-
-
-
-
-
-
-
-    <script src="script.js"></script>
+    <script src="profile.js">
+    </script>
 
   </div>
+</form>
 </body>
 
 </html>

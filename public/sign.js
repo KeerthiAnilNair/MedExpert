@@ -57,7 +57,7 @@ async function vl() {
           if (response.status === 200) {
             alert('Sign-up successful');
             al.textContent = '';
-            window.location.href = 'home.html';
+            window.location.href = 'index.html';
           } else if (response.status === 400) {
             al.textContent = data.message;
           } else {
