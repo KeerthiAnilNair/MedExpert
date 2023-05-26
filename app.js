@@ -6,8 +6,7 @@ const { body, validationResult } = require('express-validator');
 
 const app = express();
 
-
-mongoose.connect('mongodb+srv://dasharitha10:<password>@cluster0.9vbqkls.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://dasharitha10:sQcTmgXIIMIRU3he@cluster0.9vbqkls.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -26,8 +25,19 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+const recordSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  bloodgroup: String,
+  height: Number,
+  weight: Number,
+});
+
+const Record = mongoose.model('Record', recordSchema);
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 app.post('/signup', [
   body('username').notEmpty().withMessage('Username is required'),
@@ -86,8 +96,6 @@ app.post('/login', async (req, res) => {
     console.error('Error authenticating user:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
-<<<<<<< Updated upstream
-=======
 
 });
 
@@ -120,8 +128,6 @@ app.post('/profile',  (req, res) => {
      console.error('Error registering user:', error);
      res.status(500).json({ message: 'Internal server error' });
 }
-
->>>>>>> Stashed changes
 });
 
 app.get('/', (req, res) => {
@@ -134,6 +140,22 @@ app.get('/signup', (req, res) => {
 
 app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'home.html'));
+});
+
+app.get('/index', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+ app.get('/reminder', (req, res) => {
+   res.sendFile(path.join(__dirname, 'public', 'reminder.html'));
+ });
+
+app.get('/record', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'record.html'));
+});
+
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'profile.html'));
 });
 
 app.listen(3000, () => {
