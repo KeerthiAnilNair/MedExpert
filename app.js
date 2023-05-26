@@ -86,6 +86,42 @@ app.post('/login', async (req, res) => {
     console.error('Error authenticating user:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
+<<<<<<< Updated upstream
+=======
+
+});
+
+
+app.post('/profile',  (req, res) => {
+  
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { name, age, bloodgroup, weight, height } = req.body;
+  console.log(req.body);
+
+  try{
+    const userRecord = new Record({
+    name,
+    age,
+    bloodgroup,
+    weight,
+    height,
+  });
+
+   userRecord.save().then(savedRecord => {
+    console.log('saved record', savedRecord);
+   });
+  res.status(200).json({ message: 'record saved successfully' });
+
+} catch(err) {
+     console.error('Error registering user:', error);
+     res.status(500).json({ message: 'Internal server error' });
+}
+
+>>>>>>> Stashed changes
 });
 
 app.get('/', (req, res) => {

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Personal-Details</title>
+  <link href="profile.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <img class="logo" src="logo.png" />
+  </nav>
+  <form action="/profile" method="post">
+  <div class="mmn">
+    <div class="container">
+
+      <header class="log"><b>PROFILE</b></b></header>
+
+      <div class='ai' id='ai'>Name:</div>
+      <div class="nm">
+        <input type="text" placeholder="Name " class="nnam" id="nn" name="name">
+      </div>
+
+      <div class='ai' id='ai'>Age:</div>
+      <div class="nm">
+        <input type="number" min=0 placeholder="Age " class="nage" id="nn" name="age">
+      </div>
+
+      <div class='ai' id='ai'>Blood Group:</div>
+      <div class="nm">
+        <input type="text" placeholder="Blood Group" class="nbg" id="nn" name="bloodgroup">
+      </div>
+
+      <div class='ai' id='ai'>Weight(kg):</div>
+      <div class="nm">
+        <input type="number" min=0 placeholder="Weight " class="nw" id="nn" name="weight">
+      </div>
+
+      <div class='ai' id='ai'>Height(cm):</div>
+      <div class="nm">
+        <input type="number" min=0 placeholder="Height " class="nh" id="nn" name="height">
+      </div>
+
+      <div class='al' id='al'></div>
+      
+      <div class="b">
+        <button class="bt" id="bt">Submit</button>
+      </div>
+
+      <div class="ss">
+        <a class="sp" href="index.html" id="sp"></a>
+      </div>
+
+    </div>
+
+    <script src="profile.js">
+    </script>
+
+  </div>
+</form>
+</body>
+
+</html>
