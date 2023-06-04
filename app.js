@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
 const { body, validationResult } = require('express-validator');
 
 const app = express();
@@ -26,6 +27,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 const recordSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   name: String,
   age: Number,
   bloodgroup: String,
@@ -38,6 +40,14 @@ const Record = mongoose.model('Record', recordSchema);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(session({
+  secret: 'your secret key',
+  resave: true,
+  saveUninitialized: true,
+}));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 app.post('/signup', [
   body('username').notEmpty().withMessage('Username is required'),
@@ -90,8 +100,9 @@ app.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid password' });
     }
 
-   
-    res.status(200).json({ message: 'Login successful' });
+    req.session.user = user;
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+
   } catch (error) {
     console.error('Error authenticating user:', error);
     res.status(500).json({ message: 'Internal server error' });
@@ -100,18 +111,14 @@ app.post('/login', async (req, res) => {
 });
 
 
-app.post('/profile',  (req, res) => {
+app.post('/profile',  async(req, res) => {
   
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-
   const { name, age, bloodgroup, weight, height } = req.body;
-  console.log(req.body);
+  const userId = req.session.user._id;
 
   try{
     const userRecord = new Record({
+    userId,
     name,
     age,
     bloodgroup,
@@ -119,11 +126,8 @@ app.post('/profile',  (req, res) => {
     height,
   });
 
-   userRecord.save().then(savedRecord => {
-    console.log('saved record', savedRecord);
-   });
-  res.status(200).json({ message: 'record saved successfully' });
-
+   await userRecord.save();
+   res.redirect('/index');
 } catch(err) {
      console.error('Error registering user:', error);
      res.status(500).json({ message: 'Internal server error' });
@@ -150,8 +154,17 @@ app.get('/index', (req, res) => {
    res.sendFile(path.join(__dirname, 'public', 'reminder.html'));
  });
 
-app.get('/record', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'record.html'));
+ app.get('/record', isAuthenticated, async (req, res) => {
+  try {
+    const userId = req.session.user._id;
+    Record.find({ userId })
+    .then(records => {
+       res.json(records);
+    });
+  } catch (err) {
+    console.error('Error fetching user records:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 });
 
 app.get('/profile', (req, res) => {
