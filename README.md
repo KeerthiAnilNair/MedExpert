@@ -6,3 +6,8 @@ Stack used :
   Frontend : HTML, CSS, JavaScript
   Backend : NodeJS
   Database: MongoDB
+
+To run the project : 
+
+Download the project as a zip file. Connect to MongoDB database. Open the terminal inside the project and run the following command : 
+node app.js
